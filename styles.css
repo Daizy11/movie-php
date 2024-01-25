@@ -1,0 +1,277 @@
+.navbar{
+    display: flex;
+    background-color: #0000;
+    height: 6rem;
+}
+
+body{
+    background-color: #160E27 ;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.card-container{
+    display: flex;
+    gap: 149px;
+}
+
+.watch-list:hover{
+    cursor:pointer;
+}
+
+.container{
+    display: flex;
+    flex-direction:column;
+    gap: 53px;
+}
+
+.navbar{
+    height: 108px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .title{
+    color: white;
+    transform: translateX(3rem);
+}
+
+.navbar .navbar-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 67px;
+    transform: translateX(-2rem);
+}
+
+a{
+    color: white;
+}
+
+.btn-login{
+    border-radius: 20px;
+    width: 119px;
+    height: 42px;
+    color: white;
+    background-color: #6962AD;
+    border: none;
+    outline: none;
+}
+
+h1,a,button,h5,footer,p,div {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: white;
+
+}
+
+.featured-today .featured-header .top-10 .top-10-wrapper{
+    border-left: 2px #6962AD;
+    font-size: 20px;
+}
+
+.top-10-wrapper{
+    margin-left: 3rem;
+    border-left: 4px solid #6962AD;
+    padding-left: 1.5rem;
+    font-size: 30px;
+}
+
+.featured-today{
+    margin-left: 3rem;
+    border-left: 4px solid #6962AD;
+    padding-left: 1.5rem;
+    font-size: 30px;
+
+}
+
+.card-upper {
+    width: 251px;
+    height: 159px;
+    background-color: #D9D9D9;
+}
+
+.card-wrapper {
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-down{
+    background-color: #4E4A77;
+    width: 252px;
+    height: 106px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.content{
+    padding-bottom: 5rem;
+
+}
+
+.watch-now{
+    width: 221px;
+    border-radius: 20px;
+    background-color: #3D3B58;
+    height: 33px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.watch-list{
+    width: 221px;
+    border-radius: 20px;
+    background-color: transparent;
+    height: 33px;
+    border: none;
+}
+
+.footer{
+    width: 100%;
+    height: 476px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 57px;
+}
+
+.x-logo{
+    width: 60px;
+    height: 48px;
+    border-radius: 300px;
+    background-color: white;
+}
+
+.facebook-logo{
+    width: 48px;
+    height: 48px;
+    border-radius: 300px;
+    background-color: white;
+}
+
+.youtube-logo{
+    width: 60px;
+    height: 60px;
+    border-radius: 300px;
+    background-color: white;
+}
+
+.instagram-logo{
+    width: 48px;
+    height: 48px;
+    background-color: #160E27;
+    border-radius: 20px;
+    
+}
+
+.footer-content{
+    margin-left: 3rem;
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+}
+
+.footer-desc{
+    gap: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie {
+    margin-right: 3.8rem;
+    display: flex;
+    flex-direction: column;
+    height: 844px;
+    background-color: #160E27;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding-top: 45px;
+    gap: 45px;
+}
+
+.movie-header{
+    display: flex;
+    justify-content:space-between;
+}
+
+.movie-header-attribute{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-title{
+    font-size: 40px;
+}
+
+.star{
+    width: 30px;
+    height: 30px;
+}
+.rating, .popularity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.movie-header-title{
+    font-size: 20px;
+}
+
+.movie-header-attribute-wrapper{
+    transform: translateX(-2rem);
+    display: flex;
+    gap: 50px;
+}
+
+.movie-content{
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnail{
+    width: 286px;
+    height: 468px;
+    background-color: #D9D9D9;
+}
+    
+.movie-video{
+    width: 935px;
+    height: 470px;
+    background-color: #D9D9D9;
+
+}
+
+.movie-genre{
+    display: flex;
+    gap: 20px;
+   
+}
+
+.genre{
+    border-radius: 300px;
+    border: 1px solid #6962AD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 101px;
+    height: 41px;
+}
+
