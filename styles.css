@@ -66,7 +66,22 @@ a{
     justify-content: center;
 }
 
-h1,a,button,h5,footer,p,div {
+.button-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    width: 119px;
+    height: 42px;
+    color: white;
+    background-color: #6962AD;
+    border: none;
+    outline: none;
+}
+.btn-login:hover{
+    cursor: pointer;
+}
+h1,a,button,h5,footer,p,div,label {
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     color: white;
@@ -388,4 +403,91 @@ h1,a,button,h5,footer,p,div {
     margin-left: 3rem;
     font-size: 25px; 
     margin-top: 45px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.img-login{
+    width: 100%;
+    height: 100%;
+}
+
+.img-wrapper{
+    width: 65%;
+    height: 100vh;
+}
+
+ .input-wrapper{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    gap: 7px;
+    background-color: #958AFF;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+    /* align-items:center; */
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+}
+
+label {
+    color: white;
+    font-size: 13px;
+}
+
+input {
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    line-height: normal;
+    padding: 2px;
+    padding-left: 13px;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    transform: translateY(0.5rem);
+    gap: 10px;
+}
+
+.a-signup {
+    font-size: 12px;
+}
+
+.login-title{
+    font-size: 20px;
+}
+
+.input-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.input-title > p {
+    font-size: 20px;
 }

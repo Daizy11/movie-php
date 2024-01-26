@@ -13,18 +13,24 @@ include "koneksi.php";
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 <body>
-        <?php
-       if($_GET["p"] == "watchlist"){
-            include "watchlist.php";
-        }
-        else if($_GET["p"] == "movie"){
-            include "movie.php";
-        }
-        else if($_GET["p"] == "login"){
-            include "login.php";
-        }else{
-            include "home.php";
-        }
-        ?>
+<?php
+if (isset($_GET["p"])) {
+    $page = $_GET["p"];
+
+    if ($page == "movie") {
+        include "movie.php";
+    } else if ($page == "watchlist") {
+        include "watchlist.php";
+    } else if ($page == "login") {
+        include "login.php";
+    } else if($page =="signup"){
+        include "signup.php";
+    }else {
+        include "home.php";
+    }
+} else {
+    include "home.php";
+}
+?>
 </body>
 </html>
