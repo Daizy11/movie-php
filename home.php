@@ -1,93 +1,58 @@
+<?php
+  $sqlkl = mysqli_query($conn , "select * from movie ");
+  ?>
+
 <header class="navbar" >
-            <h1 class="title">Echo Film</h1>
-            <section class="navbar-1">
-                <a href="<?php echo "?p=home";?>">Home</a>
-                <a href="<?php echo "?p=movie";?>">Movie</a>
-                <a href="<?php echo "?p=watchlist";?>">Watch List</a>
+    <a href="<?php echo "?p=home";?>"><h1 class="title">Echo Film</h1></a>
+    <section class="navbar-1">
+        <a href="<?php echo "?p=home";?>">Home</a>
+        <a href="<?php echo "?p=watchlist";?>">Watch List</a>
              <a class="btn-login" href="<?php echo "?p=login";?>">Login</a>
             </section>
 </header>
-<main class="content">
+        <main class="content">
             <article class="featured-today">
                  <h5 class="featured-header">Featured Today</h5>
             </article>
             <section class="card-container">
-                <section class="card-wrapper">
-                    <section class="card-upper">
+            <?php 
+                while ($rkl = mysqli_fetch_array($sqlkl)) {
+                    echo "<section class='card-wrapper'>
+                            <section class='card-upper'>
+                            <img src='$rkl[thumbnail]' alt='' class='thumbnail-photo'>
+                            </section>
+                            <section class='card-down'>
+                                <a href='?p=movie&id=$rkl[id]' class='watch-now'>Watch Now</a>
+                                <button class='watch-list'>
+                                    +Watch List
+                                </button>
+                            </section>
+                        </section>";
 
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                        <button class="watch-list">
-                            +Watch List
-                        </button>
-                    </section>
-                
-                </section>
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                        <button class="watch-list">
-                            +Watch List
-                        </button>
-                    </section>
-                
-                </section>
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                        <button class="watch-list">
-                            +Watch List
-                        </button>
-                    </section>
-                </section>
+                }
+                mysqli_data_seek($sqlkl, 0);
+            ?>
             </section>
             <article class="top-10-wrapper">
                  <h5 class="top-10">Top 10 on this week </h5>
             </article>
+            <section class="card-container">
+            <?php 
+                while ($rkl = mysqli_fetch_array($sqlkl)) {
+                    echo "<section class='card-wrapper'>
+                            <section class='card-upper'>
+                            <img src='$rkl[thumbnail]' alt='' class='thumbnail-photo'>
 
-                <section class="card-container">
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                        <button class="watch-list">
-                            +Watch List
-                        </button>
-                    </section>
-                
-                </section>
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                        <button class="watch-list">
-                            +Watch List
-                        </button>
-                    </section>
-                
-                </section>
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                        <button class="watch-list">
-                            +Watch List
-                        </button>
-                    </section>
-                </section>
+                            </section>
+                            <section class='card-down'>
+                                <a href='?p=movie&id=$rkl[id]' class='watch-now'>Watch Now</a>
+                                <button class='watch-list'>
+                                    +Watch List
+                                </button>
+                            </section>
+                        </section>";
+                }
+            ?>
             </section>
         </main>
         <footer class="footer">

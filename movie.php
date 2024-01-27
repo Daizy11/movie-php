@@ -1,12 +1,11 @@
 <header class="navbar" >
-            <h1 class="title">Echo Film</h1>
-            <section class="navbar-1">
-                <a href="<?php echo "?p=home";?>">Home</a>
-                <a href="<?php echo "?p=movie";?>">Movie</a>
-                <a href="<?php echo "?p=watchlist";?>">Watch List</a>
-             <a class="btn-login" href="<?php echo "?p=login";?>">Login</a>
-            </section>
-        </header>
+    <a href="<?php echo "?p=home";?>"><h1 class="title">Echo Film</h1></a>
+    <section class="navbar-1">
+        <a href="<?php echo "?p=home";?>">Home</a>
+        <a href="<?php echo "?p=watchlist";?>">Watch List</a>
+        <a class="btn-login" href="<?php echo "?p=login";?>">Login</a>
+    </section>
+</header>
 <section class="movie">
     <section class="movie-header">
         <p class="movie-title">Reacher</p>
@@ -29,10 +28,10 @@
     </section>
     <section class="movie-content">
         <section class="thumbnail">
-
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Blade_Runner_2049_poster.png" alt="" class="thumbnail-photo">
         </section>
         <section class="movie-video">
-
+            <object data="https://www.youtube.com/v/gCcx85zbxz4" type="application/x-shockwave-flash" class="thumbnail-video"><param name="src" value="http://www.youtube.com/v/Ahg6qcgoay4"/></object>
         </section>
     </section>
     <section class="movie-genre">
@@ -45,7 +44,6 @@
             <section class="team-name">
                 <p>Nick Santora</p>
             </section>
-
         </section>
         <section class="team" style="border-bottom: 1px solid white;">
             <p>Stars</p>
@@ -101,20 +99,7 @@
             what is happening in Margrave, Georgia.</p>
         </article>
     </section>
-    <section class="movie-detail-wrapper">
-        <section class="movie-detail">
-            <p class="movie-detail-title">Genres</p>
-            <section class="movie-detail-name" style="transform: translateX(1.3rem);">
-                <p>Nick Santora</p>
-            </section>
-        </section>
-        <section class="movie-detail" style="border-bottom: 1px solid #D9D9D9;">
-            <p class="movie-detail-title">Language</p>
-            <section class="movie-detail-name">
-                <p>English</p>
-            </section>
-        </section>
-    </section>
+   
 </section>
 <footer class="footer">
             <section class="footer-content">
@@ -139,4 +124,4 @@
             <section class="footer-desc">
                 <p>@1990-2024 by Echo.com, Inc.</p>
             </section>
-        </footer>
+</footer>
