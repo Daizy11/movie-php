@@ -1,3 +1,11 @@
+<?php 
+    $sqlag = mysqli_query($conn, "select * from movie where id='$_GET[id]'");
+    $rpl = mysqli_fetch_array($sqlag);
+    $sqlg =  mysqli_query($conn, "select genre from movie where id='$_GET[id]' ");
+    $sqlm =  mysqli_query($conn, "select * from stars where judul='$rpl[judul]' order by judul");
+    $sqlmf = mysqli_fetch_array($sqlm);
+?>
+
 <header class="navbar" >
     <a href="<?php echo "?p=home";?>"><h1 class="title">Echo Film</h1></a>
     <section class="navbar-1">
@@ -8,41 +16,45 @@
 </header>
 <section class="movie">
     <section class="movie-header">
-        <p class="movie-title">Reacher</p>
+        <p class="movie-title"><?php  echo"$rpl[judul]"?></p>
         <section class="movie-header-attribute-wrapper">
             <section class="movie-header-attribute">
                 <p class="movie-header-title">Rating</p>
                 <section class="rating">
                     <img src="gambar/Star.png" alt="" class="star-image">
-                    <p>4.5/5</p>
+                    <p><?php  echo"$rpl[rating]"?>/5</p>
                 </section>
             </section>
             <section class="movie-header-attribute">
                 <p class="movie-header-title">Popularity</p>
                 <section class="popularity">
                     <img src="gambar/Line_up@3x.png" alt="" class="star-image">
-                    <p>2</p>
+                    <p><?php  echo"$rpl[popularity]"?></p>
                 </section>
             </section>
         </section>
     </section>
     <section class="movie-content">
         <section class="thumbnail">
-            <img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Blade_Runner_2049_poster.png" alt="" class="thumbnail-photo">
+            <img src="<?php echo "$rpl[thumbnail]";?>" alt="" class="thumbnail-photo">
         </section>
         <section class="movie-video">
-            <object data="https://www.youtube.com/v/gCcx85zbxz4" type="application/x-shockwave-flash" class="thumbnail-video"><param name="src" value="http://www.youtube.com/v/Ahg6qcgoay4"/></object>
+            <object data="<?php echo "$rpl[video]";?>" type="application/x-shockwave-flash" class="thumbnail-video"><param name="src" value="http://www.youtube.com/v/Ahg6qcgoay4"/></object>
         </section>
     </section>
     <section class="movie-genre">
-        <div class="genre">Action</div>
-        <div class="genre">Crime</div>
+        <?php 
+            while ($rpg = mysqli_fetch_array($sqlg)){
+                echo "<div class='genre'>$rpg[genre]</div>";
+            }
+        ?> 
+
     </section>
     <section class="movie-team">
         <section class="team">
             <p>Creator</p>
             <section class="team-name">
-                <p>Nick Santora</p>
+                <p><?php echo "$rpl[creator]";?></p>
             </section>
         </section>
         <section class="team" style="border-bottom: 1px solid white;">
@@ -59,44 +71,29 @@
         <p>Top Cast</p>
     </article>
     <section class="star-wrapper">
-        <section class="star">
-            <img src="" alt="" class="stars-image">
-            <section class="star-name">
-                <p class="name-1">Alan Ritchson</p>
-                <p class="name-2">Jack Reacher</p>
+        <?php 
+        mysqli_data_seek($sqlm, 0);
+            while ($sqlmf = mysqli_fetch_array($sqlm)){
+                echo "
+                <section class='star'>
+                <img src='$sqlmf[image]' alt='' class='stars-image'>
+                <section class='star-name'>
+                    <p class='name-1'>$sqlmf[realname]</p>
+                    <p class='name-2'>$sqlmf[pseudonym]</p>
+                </section>
             </section>
-        </section>
-        <section class="star">
-            <img src="" alt="" class="stars-image">
-            <section class="star-name">
-                <p class="name-1">Alan Ritchson</p>
-                <p class="name-2">Jack Reacher</p>
-            </section>
-        </section> 
-        <section class="star">
-            <img src="" alt="" class="stars-image">
-            <section class="star-name">
-                <p class="name-1">Alan Ritchson</p>
-                <p class="name-2">Jack Reacher</p>
-            </section>
-        </section>
-        <section class="star">
-            <img src="" alt="" class="stars-image">
-            <section class="star-name">
-                <p class="name-1">Alan Ritchson</p>
-                <p class="name-2">Jack Reacher</p>
-            </section>
-        </section>
+                ";
+            }
+        ?>
+       
+       
     </section>
     <section class="story">
         <article class="storyline-title">
             <p>Storyline</p>
         </article>
         <article class="storyline">
-            <p>When retired Military Police Officer Jack Reacher is arrested for a murder he did not commit,
-            he finds himself in the middle of a deadly conspiracy full of dirty cops, 
-            shady businessmen, and scheming politicians. With nothing but his wits, he must figure out 
-            what is happening in Margrave, Georgia.</p>
+            <p><?php echo "$rpl[storyline]";?></p>
         </article>
     </section>
    
