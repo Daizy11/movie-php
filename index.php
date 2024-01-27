@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include "koneksi.php";
 ?>
 <!DOCTYPE html>
@@ -21,15 +22,15 @@ if (isset($_GET["p"])) {
         include "movie.php";
     } else if ($page == "watchlist") {
         include "watchlist.php";
-    } else if ($page == "login") {
-        include "login.php";
+    } else if ($page == "home") {
+        include "home.php";
     } else if($page =="signup"){
         include "signup.php";
     }else {
-        include "home.php";
+        include "login.php";
     }
 } else {
-    include "home.php";
+    include "login.php";
 }
 ?>
 </body>

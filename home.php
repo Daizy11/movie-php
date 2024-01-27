@@ -14,24 +14,47 @@
             <article class="featured-today">
                  <h5 class="featured-header">Featured Today</h5>
             </article>
+            <script>
+                function onClick(imageSrc) {
+                    console.log("Image source:", imageSrc);
+
+                    // Make AJAX request to PHP script
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200) {
+                                console.log(xhr.responseText); // Log response from PHP
+                            } else {
+                                console.error('Request failed: ' + xhr.status);
+                            }
+                        }
+                    };
+                    xhr.open("POST", "insert_image.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send("imageSrc=" + encodeURIComponent(imageSrc));
+                    alert('Already added to watchlist!')
+                }
+            </script>
             <section class="card-container">
-            <?php 
+                <?php 
                 while ($rkl = mysqli_fetch_array($sqlkl)) {
+                    if (empty($rkl)){
+                        echo "<p style='text-align:center;'> Data Empt</p>";
+                    }
                     echo "<section class='card-wrapper'>
                             <section class='card-upper'>
-                            <img src='$rkl[thumbnail]' alt='' class='thumbnail-photo'>
+                                <img src='$rkl[thumbnail]' alt='' class='thumbnail-photo'>
                             </section>
                             <section class='card-down'>
                                 <a href='?p=movie&id=$rkl[id]' class='watch-now'>Watch Now</a>
-                                <button class='watch-list'>
+                                <button class='watch-list' onClick='onClick(\"$rkl[thumbnail]\")'>
                                     +Watch List
                                 </button>
                             </section>
                         </section>";
-
                 }
                 mysqli_data_seek($sqlkl, 0);
-            ?>
+                ?>
             </section>
             <article class="top-10-wrapper">
                  <h5 class="top-10">Top 10 on this week </h5>
@@ -46,15 +69,18 @@
                             </section>
                             <section class='card-down'>
                                 <a href='?p=movie&id=$rkl[id]' class='watch-now'>Watch Now</a>
-                                <button class='watch-list'>
-                                    +Watch List
+                                <button class='watch-list'  onclick='logImageSrc(\"$rkl[thumbnail]\")'>
+                                +Watch List
                                 </button>
                             </section>
                         </section>";
                 }
             ?>
+
+          
             </section>
         </main>
+              
         <footer class="footer">
             <section class="footer-content">
                 <img src="https://qwestore.com/png_images_min/10/bFacebook-logob-bBlack-iconb-FB-icon-7841.png" alt="" class="facebook-logo">

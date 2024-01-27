@@ -11,34 +11,37 @@
         <p>Watchlist</p>
     </article>
     <section class="card-container">
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                    </section>
+            <?php
+            $sql = mysqli_query($conn,"select * from watchlist");
+            
+            while ($row = mysqli_fetch_assoc($sql)) {
+                if ($row['thumbnail'] === null) {
+                    echo "<p style='text-align:center;font-size:30px;'>Data Empty</p>";
+                }
+                // Output each row in HTML format
+                echo "<section class='card-wrapper'>
+                        <section class='card-upper'>
+                            <img src='" . $row['thumbnail'] . "' alt='' class='thumbnail-photo'>
+                        </section>
+                        <section class='card-down'>
+                            <a href='' class='watch-now'>Watch Now</a>
+                            <button class='watch-list'>Delete</button>
+                        </section>
+                    </section>";
+            }
+            
+            // Reset the result set pointer to the beginning (if needed)
+            mysqli_data_seek($sql, 0);
+            
+            // Retrieve all rows from the result set and encode them as JSON
+            $rows = array();
+            while ($row = mysqli_fetch_assoc($sql)) {
+                $rows[] = $row;
+            }
+            // echo json_encode($rows);
+            ?>
                 
-                </section>
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                       
-                    </section>
-                
-                </section>
-                <section class="card-wrapper">
-                    <section class="card-upper">
-
-                    </section>
-                    <section class="card-down">
-                        <a href="" class="watch-now">Watch Now</a>
-                    </section>
-                </section>
-            </section>
+    </section>
 </section>
 <footer class="footer">
             <section class="footer-content">
